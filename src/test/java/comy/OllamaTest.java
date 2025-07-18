@@ -16,7 +16,7 @@ public class OllamaTest {
 
     @Test
     public void test(){
-        String s = ollamaChatModel.call("你好");
+        String s = ollamaChatModel.call("hello");
         System.out.println(s);
     }
 
