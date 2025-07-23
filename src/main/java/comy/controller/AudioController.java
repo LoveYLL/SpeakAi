@@ -3,7 +3,10 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import comy.result.Result;
+import comy.utils.KafkaProducer;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
@@ -14,8 +17,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/audio")
 public class AudioController {
+    @Autowired
+    KafkaProducer kafkaProducer;
     @PostMapping(value = "/score")
-    public Map<String, Object> handleAudioUpload(@RequestParam("file") MultipartFile file,@RequestParam String refText) {
+    public Result<Map<String, Object>> handleAudioUpload(@RequestParam("file") MultipartFile file, @RequestParam String refText) {
         Map<String, Object> result = new HashMap<>();
         try {
             // 保存录音文件
@@ -33,7 +38,6 @@ public class AudioController {
             JSONObject jsonText = JSONUtil.parseObj(text);
             System.out.println(jsonText.getStr("text"));
 
-
             //发音评分逻辑
             String userText=jsonText.getStr("text");
             int distance = StringUtils.getLevenshteinDistance(userText.toLowerCase(), refText.toLowerCase());
@@ -44,16 +48,15 @@ public class AudioController {
             if (score>=80) message="发音非常棒";
             else if (score>=60) message="发音不错哦";
             else message="发音不太好，还需要加油哦";
-            result.put("success",true);
             result.put("score",score);
             result.put("message",message);
-            return result;
-       }
+            kafkaProducer.sendDiffWords(refText, userText);
+            return Result.success(result);}
         catch (IOException e) {
             e.printStackTrace();
             result.put("success", false);
             result.put("message", "上传失败：" + e.getMessage());
-            return result;}
+            return Result.success(result);}
     }
 
 }

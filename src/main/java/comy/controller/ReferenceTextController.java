@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/reference")
     public class ReferenceTextController {
-
         @Autowired
         private ReferenceTextService referenceTextService;
-
         @GetMapping("/random")
         public Result<ReferenceText> getRandomReferenceText() {
             ReferenceText text = referenceTextService.getText();
