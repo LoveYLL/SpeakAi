@@ -143,7 +143,7 @@ spring:
 3. 点击编译运行
 
 ### H5使用
-1. 访问 `http://localhost:3000`
+1. 访问 `http://localhost:5173`
 2. 允许浏览器使用麦克风权限
 3. 点击开始语音对话
 
@@ -158,12 +158,6 @@ spring:
 - 前端遵循 [Vue.js 风格指南](https://cn.vuejs.org/v2/style-guide/)
 - Java代码遵循 [阿里巴巴Java开发手册](https://github.com/alibaba/p3c)
 - Python代码遵循 [PEP 8](https://pep8.org/)
-
-### 分支管理
-- `main`: 主分支，稳定版本
-- `develop`: 开发分支，集成测试
-- `feature/*`: 功能开发分支
-- `hotfix/*`: 紧急修复分支
 
 ## 📊 性能指标
 
@@ -184,18 +178,17 @@ spring:
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+本项目采用 Apache-2.0 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
 ## 👥 联系方式
 
 - **项目主页**: [https://github.com/your-username/speakai](https://github.com/your-username/speakai)
 - **问题反馈**: [Issues](https://github.com/your-username/speakai/issues)
-- **邮箱**: your-email@example.com
+- **邮箱**: qwaszx119415@outlook.com
 
 ## 🙏 致谢
 
 - 感谢 [uni-app](https://uniapp.dcloud.io/) 提供的跨端开发框架
-- 感谢 [科大讯飞](https://www.xfyun.cn/) 提供的语音识别技术支持
 - 感谢所有贡献者和使用者的支持
 
 ---
