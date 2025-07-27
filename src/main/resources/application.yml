@@ -23,3 +23,17 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+  elasticsearch:
+    uris: http://localhost:9200
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id:
+    access-key-secret:
+    bucket-name: 
+sa-token:
+  token-name: Authorization
+  token-style: jwt
+  jwt-secret-key: "a1B2c3D4e5F6g7H8"
+  timeout: 3600        # 有效期（单位：秒）
+  active-timeout: -1 # JWT 无状态，不需要续期

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class PronunciationDiffWordsServiceImpl extends ServiceImpl<PronunciationDiffWordsMapper, PronunciationDiffWords>
     implements PronunciationDiffWordsService{
-
 }
 
 

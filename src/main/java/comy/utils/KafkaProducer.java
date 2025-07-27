@@ -7,14 +7,11 @@ import java.util.Set;
 public class KafkaProducer {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private static final String TOPIC = "comparewords";
-
     public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
-
     public void sendDiffWords(String refText, String userText) {
-        Set<String> diffWords = TextDiffUtil.findDiffWords(refText, userText);
+        Set<String> diffWords = TextDiffUtil.findMissingWords(refText, userText);
         String json = JSONUtil.toJsonStr(diffWords);
         kafkaTemplate.send(TOPIC, json);
-    }
-}
+    }}

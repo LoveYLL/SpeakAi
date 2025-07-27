@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import java.time.LocalDateTime;
 @Data
-@TableName("pronunciation_diff_words") // 对应表名
+@TableName("pronunciation_diff_words")
 public class PronunciationDiffWords {
     
     @TableId

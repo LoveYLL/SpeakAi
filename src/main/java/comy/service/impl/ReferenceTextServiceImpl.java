@@ -10,7 +10,7 @@ import java.util.Random;
 public class ReferenceTextServiceImpl extends ServiceImpl<ReferenceTextMapper,ReferenceText> implements ReferenceTextService {
     @Override
     public ReferenceText getText() {
-        List<ReferenceText> all = this.list(); // 查询所有数据
+        List<ReferenceText> all = this.list();
         if (all.isEmpty()) return null;
         Random random = new Random();
         return all.get(random.nextInt(all.size()));

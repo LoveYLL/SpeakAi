@@ -5,6 +5,8 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import comy.result.Result;
 import comy.utils.KafkaProducer;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,31 +16,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+@CrossOrigin
 @RestController
 @RequestMapping("/api/audio")
+@Tag(name = "跟读模块", description = "用于处理用户上传音频文件进行发音评分和文字比对的功能")
 public class AudioController {
     @Autowired
     KafkaProducer kafkaProducer;
+    @Operation(summary = "上传音频文件并评分", description = "接收用户上传的音频文件，与参考文本进行比对，返回发音评分及相关信息")
     @PostMapping(value = "/score")
-    public Result<Map<String, Object>> handleAudioUpload(@RequestParam("file") MultipartFile file, @RequestParam String refText) {
+    public Result<Map<String, Object>> handleAudioUpload(@RequestParam("file") MultipartFile file,
+                                                         @RequestParam String refText) {
         Map<String, Object> result = new HashMap<>();
         try {
-            // 保存录音文件
             String uploadDir = "src/resources/static/";
-            // 创建目录（自动判断是否存在）
             FileUtil.mkdir(uploadDir);
-            // 目标文件路径
             String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File destFile = FileUtil.file(uploadDir, filename);
-            // 使用 Hutool 将上传文件保存
             try (InputStream in = file.getInputStream()) {
                 FileUtil.writeFromStream(in, destFile);}
             HttpRequest form = HttpRequest.post("http://localhost:8000/whisper").form("file", destFile);
             String text=form.execute().body();
             JSONObject jsonText = JSONUtil.parseObj(text);
             System.out.println(jsonText.getStr("text"));
-
-            //发音评分逻辑
             String userText=jsonText.getStr("text");
             int distance = StringUtils.getLevenshteinDistance(userText.toLowerCase(), refText.toLowerCase());
             int maxLen = Math.max(userText.length(), refText.length());
@@ -58,5 +58,4 @@ public class AudioController {
             result.put("message", "上传失败：" + e.getMessage());
             return Result.success(result);}
     }
-
 }

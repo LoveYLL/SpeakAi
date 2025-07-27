@@ -1,5 +1,4 @@
 package comy.utils;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import jakarta.websocket.EncodeException;
@@ -7,8 +6,6 @@ import jakarta.websocket.Encoder;
 import jakarta.websocket.EndpointConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-
 public class EncoderUtil<T> implements Encoder.Text<T> {
     @Override
     public  String encode(T t) throws EncodeException {

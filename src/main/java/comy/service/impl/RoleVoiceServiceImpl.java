@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoleVoiceServiceImpl extends ServiceImpl<RoleVoiceMapper, RoleVoice>
     implements RoleVoiceService{
-
     @Override
     public String getVoiceByRoleCode(String roleCode) {
         RoleVoice roleVoice = this.getOne(new QueryWrapper<RoleVoice>().eq("role_code", roleCode));
