@@ -21,14 +21,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-src/main/java/comy/mapper
-src/main/java/comy/service
-src/main/java/comy/controller
-src/test/java/comy/OllamaTest.java
 
-src/main/java/comy/utils/KafkaConsumer.java
-src/main/java/comy/utils/KafkaProducer.java
-src/main/java/comy/utils/TextDiffUtil.java
-src/main/resources/application.yml
 
 
