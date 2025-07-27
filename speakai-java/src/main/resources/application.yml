@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.2:3b
+  datasource:
+    url: jdbc:mysql://localhost:3306/speakai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: pronunciation-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+  elasticsearch:
+    uris: http://localhost:9200
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id:
+    access-key-secret:
+    bucket-name: 
+sa-token:
+  token-name: Authorization
+  token-style: jwt
+  jwt-secret-key: "a1B2c3D4e5F6g7H8"
+  timeout: 3600        # 有效期（单位：秒）
+  active-timeout: -1 # JWT 无状态，不需要续期
