@@ -1,0 +1,122 @@
+{
+  "pages": [
+    {
+      "path": "pages/dev/LoginView",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dev/character",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dev/chat",
+      "style": {
+        "navigationStyle": "custom" 
+      }
+    },
+    {
+      "path": "pages/dev/scene",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dev/gendu",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dev/words",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test/TestView",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test/TypedView",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test/SocketView",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test/AboutView",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test/LinShi",
+      "style": {
+        "navigationStyle": "custom"
+
+      }
+    }
+    
+  ],
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#667eea",
+    "backgroundColor": "#f8f8f8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/src/static/logo.png",
+        "selectedIconPath": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/dev/gendu",
+        "text": "跟读",
+        "iconPath": "static/logo.png",
+        "selectedIconPath": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/dev/scene",
+        "text": "情景",
+        "iconPath": "static/tabbar/course.png",
+        "selectedIconPath": "static/tabbar/course-active.png"
+      },
+      {
+        "pagePath": "pages/dev/character",
+        "text": "角色",
+        "iconPath": "static/tabbar/character.png",
+        "selectedIconPath": "static/tabbar/character-active.png"
+      },
+      {
+        "pagePath": "pages/dev/words",
+        "text": "单词",
+        "iconPath": "static/tabbar/word-default.png",
+        "selectedIconPath": "static/tabbar/word-active.png"
+      }
+      // {
+      //   "pagePath": "pages/test/TestView",
+      //   "text": "测试",
+      //   "iconPath": "static/logo.png",
+      //   "selectedIconPath": "static/logo.png"
+      // }
+    ]
+  }
+}
