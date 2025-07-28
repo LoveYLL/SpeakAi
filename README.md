@@ -125,11 +125,6 @@ spring:
     url: jdbc:mysql://localhost:3306/speakai?useSSL=false&serverTimezone=UTC
     username: your_username
     password: your_password
-  
-  redis:
-    host: localhost
-    port: 6379
-    password: your_redis_password
 ```
 
 ## 📱 使用指南
